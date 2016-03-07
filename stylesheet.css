@@ -1,0 +1,98 @@
+
+
+body {
+  text-align: center;
+  width: 100%;
+  background-color: lightblue;
+}
+
+#side-menu {
+  position: absolute;
+  left: 0px;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.begin-reset {
+  width: 300px;
+  height: 50px;
+  background-color: red;
+  font-size: 25px;
+  border: 1px solid black;
+  display: inline-block;
+  line-height: 50px;
+  /*margin-bottom: 50px;*/
+}
+
+.box {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  font-size: 25px;
+  border: 1px solid black;
+  display: inline-block;
+  line-height: 50px;
+}
+
+.piece {
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+  line-height: 50px;
+}
+
+.game {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.start-menu {
+  height: 400px;
+  width: 400px;
+  border: 1px solid black;
+  background-color: lightyellow;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.square {
+  height: 150px;
+  width : 150px;
+  border: 2px solid black;
+  margin: 5px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.cross {
+  background-image: url(images/cross.png);
+  background-size: cover;
+}
+
+.nought {
+  background-image: url(images/nought.png);
+  background-size: cover;
+}
+
+.win {
+  background-color: green;
+}
+
+.player {
+  display: none;
+}
+
+.move {
+  background-color: yellow;
+}
+
+.hide {
+  display: none;
+}
