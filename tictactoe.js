@@ -6,8 +6,8 @@ var currentMove;
 
 //get player names, select pieces
 var beginGame = function() {
-    $('#start-menu').removeClass('hide');
-    $('ul').addClass('hide');
+    // $('#start-menu').removeClass('hide');
+    // $('ul').addClass('hide');
     player1[0] = prompt('Player 1, please enter your name');
     $('#player1').text(player1[0]);
     player2[0] = prompt('Player 2, please enter your name');
