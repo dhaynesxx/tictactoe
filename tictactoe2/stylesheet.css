@@ -11,11 +11,11 @@ body {
 #side-menu {
   position: absolute;
   left: 0px;
-  width: 30%;
-  margin: 0 auto;
+  width: 40%;
+  margin: 50px auto;
 }
 
-.begin-reset {
+.begin-reset-start {
   width: 300px;
   height: 50px;
   background-color: red;
@@ -27,7 +27,19 @@ body {
   /*margin-bottom: 50px;*/
 }
 
-.begin-reset:hover {
+.begin-reset-start:hover {
+  cursor: pointer;
+}
+
+.square.unused:hover {
+  cursor: pointer;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+button {
   cursor: pointer;
 }
 
@@ -50,10 +62,38 @@ body {
   background-color: white;
   display: inline-block;
   line-height: 50px;
+  position: relative;
+  top: 17px;
+  z-index: 2;
+}
+
+.numWins {
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+  line-height: 50px;
+  position: relative;
+  top: -4px;
+}
+
+#numGames {
+  position: relative;
+  left: 130px;
+  margin-top:  23px;
+  z-index: 1;
+}
+#play1Wins, #play2Wins {
+  position: relative;
+  left: -28px;
+  z-index: 1;
 }
 
 .main {
-  width: 80%;
+  width: 70%;
   text-align: center;
   /*float: right;*/
   margin: 0 0 0 auto;
@@ -105,6 +145,7 @@ input {
 
 h1 {
   font-size: 50px;
+  margin: 20px 0;
 }
 
 .square {
@@ -113,19 +154,43 @@ h1 {
   /*border: 2px solid black;*/
   display: inline-block;
   /*background-color: lightgrey;
-  opacity: 0.7*/
+  opacity: 0.7*/*/
+  position: relative;
+}
+
+.top {
+  position: relative;
+  top: 20px;
+}
+
+.center {
+  position: relative;
+  top: 20px;
+}
+
+.bottom {
+  position: relative;
+  top: 30px;
+}
+
+.left {
+  position: relative;
+  left: -65px;
 }
 
 .middle {
-  margin: 0 40px;
-};
+  position: relative;
+  left: -15px;
 
-.center {
-  margin: 40px 0;
+}
+
+.right {
+  position: relative;
+  left:   40px;
 }
 
 ul {
-  height: 520px;
+  height: 550px;
   width: 520px;
   background-image: url(images/board.png);
   background-size: cover;
@@ -140,30 +205,56 @@ ul {
 
 @keyframes wins {
   0% {
-    height: 140px;
-    width: 140px;
+    transform: scale(1);
+
   }
+
   25% {
-    height: 160px;
-    width: 160px;
+    transform: scale(1.5)
+
   }
+
   50% {
-    height: 180px;
-    width: 180px;
+    transform: scale(1);
+    transform: rotate(0deg)
   }
-  75% {
-    height: 160px;
-    width: 160px;
+
+  60% {
+    transform: rotate(90deg)
+  }
+  70% {
+    transform: rotate(180deg)
+  }
+  80% {
+    transform: rotate(270deg)
+  }
+  90% {
+    transform: rotate(360deg)
   }
   100%{
-    height: 140px;
-    width: 140px;
+    transform: rotate(0deg)
   }
 }
 
-/*.win {
-  animation: wins 1s infinite;
-}*/
+.win {
+  animation: wins 3s infinite;
+}
+
+@keyframes multiWins {
+  0%  {
+    transform: scale(1)
+  }
+  50%  {
+    transform: scale(10)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+.multiWin {
+  animation: multiWins 5s infinite;
+}
 
 .hide {
   display: none;

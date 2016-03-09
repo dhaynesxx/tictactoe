@@ -12,11 +12,14 @@
 
       </div>
       <div id="side-menu">
-            <button class='begin-reset' type="button">Begin Game</button>
+            <button class='begin-reset-start' type="button">Begin Game</button><br>
             <div class='box' id='player1'>Player 1</div>
             <div class='piece' id="piece1"></div>
+            <div class='numWins hide' id="play1Wins"></div><br>
             <div class ='box' id='player2'>Player 2</div>
             <div class='piece' id="piece2"></div>
+            <div class='numWins hide' id="play2Wins"></div><br>
+            <div class='numWins hide' id="numGames"></div>
       </div>
       <div class='main'>
       <div class='start-menu hide' id='start-menu'>
@@ -49,27 +52,29 @@
               <br>
               <h2>First move goes to:</h2><br>
               <div id='firstMovePlayer'>insert Text</div>
-              <button class='ok' id="startGame">Start</button><br>
+              <button class='ok' id="start1Game">Play 1 Game</button><br>
+              <button class='ok' id="start3Game">Play 3 Games</button><br>
+              <button class='ok' id="start5Game">Play 5 Games</button><br>
             </div>
 
       </div>
       <div class='game'>
           <ul>
-              <li class="square unused" id="pos1"></li>
-              <li class="square unused middle" id="pos2"></li>
-              <li class="square unused" id="pos3"></li>
+              <li class="square unused top left" id="pos1"></li>
+              <li class="square unused top middle" id="pos2"></li>
+              <li class="square unused top right" id="pos3"></li>
               <br>
               <br>
               <br>
-              <li class="square unused center" id="pos4"></li>
-              <li class="square unused middle center" id="pos5"></li>
-              <li class="square unused center" id="pos6"></li>
+              <li class="square unused center left" id="pos4"></li>
+              <li class="square unused center middle" id="pos5"></li>
+              <li class="square unused center right" id="pos6"></li>
               <br>
               <br>
               <br>
-              <li class="square unused" id="pos7"></li>
-              <li class="square unused middle" id="pos8"></li>
-              <li class="square unused" id="pos9"></li>
+              <li class="square unused bottom left" id="pos7"></li>
+              <li class="square unused bottom middle" id="pos8"></li>
+              <li class="square unused bottom right" id="pos9"></li>
           </ul>
 
       </div>
