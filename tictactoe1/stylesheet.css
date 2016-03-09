@@ -45,7 +45,7 @@ body {
   line-height: 50px;
 }
 
-.game {
+.main {
   width: 65%;
   margin: 0 auto;
 }
@@ -81,10 +81,6 @@ h1 {
   background-size: cover;
 }
 
-.win {
-  background-color: green;
-}
-
 .player {
   display: none;
 }
@@ -93,6 +89,8 @@ h1 {
   background-color: yellow;
 }
 
-/*.hide {
-  display: none;
-}*/
+.win {
+  background-color: green;
+}
+
+s

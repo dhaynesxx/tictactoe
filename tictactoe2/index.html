@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <div id="container">
+      <div class='header'>
+        <h1>Tic Tac Toe</h1>
+
+      </div>
+      <div id="side-menu">
+            <button class='begin-reset' type="button">Begin Game</button>
+            <div class='box' id='player1'>Player 1</div>
+            <div class='piece' id="piece1"></div>
+            <div class ='box' id='player2'>Player 2</div>
+            <div class='piece' id="piece2"></div>
+      </div>
+      <div class='main'>
+      <div class='start-menu hide' id='start-menu'>
+
+            <div class='start-menu hide' id='player1Name'>
+              <h2>Player 1</h2><br>
+              <h3>please enter your name</h3><br>
+              <input type="text" name='player 1 name' id='namePlayer1'><br>
+              <button class='ok' id="player1NameOk">Confirm</button><br>
+            </div>
+
+            <div class='start-menu hide' id='player2Name'>
+              <h2>Player 2</h2><br>
+              <h3>please enter your name</h3><br>
+              <input type="text" name='player 1 name' id='namePlayer2'><br>
+              <button class='ok' id="player2NameOk">Confirm</button><br>
+            </div>
+
+            <div class='start-menu hide' id='choosePiece1'>
+              <h2>Player 1</h2><br>
+              <h3>please select your piece</h2><br>
+            </div>
+
+            <div class='start-menu hide' id='choosePiece2'>
+              <h2>Player 2</h2><br>
+              <h3>please select your piece</h3><br>
+            </div>
+
+            <div class='start-menu hide' id='firstMove'>
+              <br>
+              <h2>First move goes to:</h2><br>
+              <div id='firstMovePlayer'>insert Text</div>
+              <button class='ok' id="startGame">Start</button><br>
+            </div>
+
+      </div>
+      <div class='game'>
+          <ul>
+              <li class="square unused" id="pos1"></li>
+              <li class="square unused middle" id="pos2"></li>
+              <li class="square unused" id="pos3"></li>
+              <br>
+              <br>
+              <br>
+              <li class="square unused center" id="pos4"></li>
+              <li class="square unused middle center" id="pos5"></li>
+              <li class="square unused center" id="pos6"></li>
+              <br>
+              <br>
+              <br>
+              <li class="square unused" id="pos7"></li>
+              <li class="square unused middle" id="pos8"></li>
+              <li class="square unused" id="pos9"></li>
+          </ul>
+
+      </div>
+
+
+      </div>
+      <!-- <div class='right-side'>
+          <div class='hide' id='alertBox'>
+              <h3>insert text</h3>
+          </div>
+      </div> -->
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src='tictactoe.js'></script>
+</body>
+</html>

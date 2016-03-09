@@ -6,8 +6,6 @@ var currentMove;
 
 //get player names, select pieces
 var beginGame = function() {
-    // $('#start-menu').removeClass('hide');
-    // $('ul').addClass('hide');
     player1[0] = prompt('Player 1, please enter your name');
     $('#player1').text(player1[0]);
     player2[0] = prompt('Player 2, please enter your name');
@@ -70,19 +68,13 @@ var assignMove = function (playerPiece, cell) {
 //test if won horizontally
 var rowWin = function() {
         if ( $('#pos1').attr('class') === $('#pos2').attr('class') && $('#pos1').attr('class') === $('#pos3').attr('class') && $('#pos1').attr('class') !== 'square' ) {
-            $('#pos1').addClass('win');
-            $('#pos2').addClass('win');
-            $('#pos3').addClass('win');
+            $('#pos1, #pos2, #pos3').addClass('win');
             return true;
         } else if ( $('#pos4').attr('class') === $('#pos5').attr('class') && $('#pos4').attr('class') === $('#pos6').attr('class') && $('#pos4').attr('class') !== 'square') {
-            $('#pos4').addClass('win');
-            $('#pos5').addClass('win');
-            $('#pos6').addClass('win');
+            $('#pos4, #pos5, #pos6').addClass('win');
             return true;
         } else if ( $('#pos7').attr('class') === $('#pos8').attr('class') && $('#pos7').attr('class') === $('#pos9').attr('class') && $('#pos7').attr('class') !== 'square') {
-            $('#pos7').addClass('win');
-            $('#pos8').addClass('win');
-            $('#pos9').addClass('win');
+            $('#pos7, #pos8, #pos9').addClass('win');
             return true;
         } else {
             return false;
@@ -92,19 +84,13 @@ var rowWin = function() {
 //test if won vertically
 var columnWin = function() {
         if ( $('#pos1').attr('class') === $('#pos4').attr('class') && $('#pos1').attr('class') === $('#pos7').attr('class') && $('#pos1').attr('class') !== 'square') {
-            $('#pos1').addClass('win');
-            $('#pos4').addClass('win');
-            $('#pos7').addClass('win');
+            $('#pos1, #pos4, #pos7').addClass('win');
             return true;
         } else if ( $('#pos2').attr('class') === $('#pos5').attr('class') && $('#pos2').attr('class') === $('#pos8').attr('class') && $('#pos2').attr('class') !== 'square') {
-            $('#pos2').addClass('win');
-            $('#pos5').addClass('win');
-            $('#pos8').addClass('win');
+            $('#pos2, #pos5, #pos8').addClass('win');
             return true;
         } else if ( $('#pos3').attr('class') === $('#pos6').attr('class') && $('#pos3').attr('class') === $('#pos9').attr('class') && $('#pos3').attr('class') !== 'square' ) {
-            $('#pos3').addClass('win');
-            $('#pos6').addClass('win');
-            $('#pos9').addClass('win');
+            $('#pos3, #pos6, #pos9').addClass('win');
             return true;
         } else {
             return false;
@@ -114,14 +100,10 @@ var columnWin = function() {
 //test if won diagonaly
 var diagonalWin = function() {
         if ( $('#pos1').attr('class') === $('#pos5').attr('class') && $('#pos1').attr('class') === $('#pos9').attr('class') && $('#pos1').attr('class') !== 'square' ) {
-            $('#pos1').addClass('win');
-            $('#pos5').addClass('win');
-            $('#pos9').addClass('win');
+            $('#pos1, #pos5, #pos9').addClass('win');
             return true;
         } else if ( $('#pos3').attr('class') === $('#pos5').attr('class') && $('#pos3').attr('class') === $('#pos7').attr('class') && $('#pos3').attr('class') !== 'square') {
-            $('#pos3').addClass('win');
-            $('#pos5').addClass('win');
-            $('#pos7').addClass('win');
+            $('#pos3, #pos5, #pos7').addClass('win');
             return true;
         }  else {
             return false;
@@ -179,7 +161,9 @@ $('.square').on('click', function() {
         }
         assignMove(piece, pos);
         if (testWin()) {
-            alert (currentMove[0] + ' Wins!!!');
+            var winner = currentMove[0];
+            //$('#' + winner).addClass('win');
+            alert (winner + ' Wins!!!');
             resetGame();
             return;
         } else if (stalemate()) {
@@ -200,13 +184,16 @@ $('.begin-reset').on('click', function() {
         }
 });
 
+$('#player1NameOk').on('click', function() {
+
+});
+
 var resetGame = function () {
-        $('.square').removeClass('nought cross win');
+        $('.square, #piece1, #piece2').removeClass('nought cross win');
         $('#player1').text('Player 1');
         $('#player2').text('Player 2');
         $('.begin-reset').text('Begin Game');
-        $('.box').removeClass('move');
-        $('.piece').removeClass('move');
+        $('.box, .piece').removeClass('move');
 };
 
 
