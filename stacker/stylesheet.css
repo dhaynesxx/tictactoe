@@ -1,0 +1,65 @@
+@font-face { font-family: Arcade; src: url('ARCADECLASSIC.ttf'); }
+
+.gameBoard {
+  width: 240px;
+  height: 615px;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding-top: 6px;
+  background-color: rgba(101,19,82,0.7);
+  position: relative;
+  top: 30px;
+}
+
+.cell {
+  height: 29px;
+  width: 29px;
+  border: 1px solid black;
+  display: inline-block;
+  background-color: rgba(74,81,189,0.7);
+}
+
+body {
+  text-align: center;
+  background-image: url(stackerback.jpg);
+  background-size: cover;
+  font-family: Arcade, serif;
+}
+
+h1 {
+  color: white;
+  float: left;
+  transform: rotate(300deg);
+  font-size: 120px;
+  position: relative;
+  top: 100px
+}
+
+.active {
+  background-color: rgba(219,85,191,1);
+}
+
+.inactive {
+  background-color: lightblue;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  margin: 100px 0 ;
+  background-color: #330D0A;
+  color: white;
+  font-size: 40px;
+  font-family: Arcade, serif;
+  float: right;
+  position: relative;
+  left: -150px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.graphic {
+  background-color: white;
+}
