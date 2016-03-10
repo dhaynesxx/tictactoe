@@ -1,12 +1,13 @@
 var column = 0;
 var direction = 1;
 var row = 11;
-var time = 600;
+var time = 500;
+var timeChange = 25;
 var pieces = 3;
 var result = '';
 
 var resetGame = function () {
-        $('.cell').removeClass('active');
+        $('.cell').removeClass('active you win lose');
         column = 0;
         direction = 1;
         row = 11;
@@ -36,7 +37,6 @@ var playThreePiece = function () {
           direction = -1;
           column = 5;
         }
-        $(window).on('keypress', changeRow(event));
 };
 
 
@@ -56,7 +56,6 @@ var playTwoPiece = function () {
           direction = -1;
           column = 6;
         }
-        $('.move').off('click').on('click', changeRow);
 };
 
 var playOnePiece = function () {
@@ -70,7 +69,6 @@ var playOnePiece = function () {
         } else if (column === 7) {
           direction = -1;
         }
-        $('.move').off('click').on('click', changeRow);
 };
 
 var testMove = function () {
@@ -101,12 +99,12 @@ var testCurrentPieces = function () {
         }
 };
 
-var changeRow = function() {
+var changeRow = function(event) {
+        $('.start').blur();
         if (event.keyCode === 32) {
-            console.log('space');
             window.clearInterval(movingpiece);
             row += 1;
-            time -= 30;
+            time -= timeChange;
             column = 0;
             direction = 1;
             if (row > 12) {
@@ -134,6 +132,7 @@ var firstStart = function() {
         $('.start').off('click');
         $('.start').text('Reset');
         $('.start').on('click', resetGame);
+        $(window).on('keypress', changeRow);
         playThree();
 };
 
@@ -152,6 +151,7 @@ var endAnimate = function () {
 };
 
 var endGame = function() {
+        $(window).off('keypress');
         timerID = window.setInterval(endAnimate, 100);
 };
 
@@ -177,16 +177,20 @@ var upActive = function() {
 
 var youGraphic = function () {
       $('#pos282, #pos286, #pos272, #pos276, #pos263, #pos265, #pos254, #pos244, #pos222, #pos223, #pos224, #pos225, #pos226, #pos212, #pos216, #pos202, #pos206, #pos192, #pos196, #pos182, #pos183, #pos184, #pos185, #pos186, #pos162, #pos166, #pos152, #pos156, #pos142, #pos146, #pos132, #pos136, #pos123, #pos124, #pos125').removeClass('active');
+      $('#pos282, #pos286, #pos272, #pos276, #pos263, #pos265, #pos254, #pos244, #pos222, #pos223, #pos224, #pos225, #pos226, #pos212, #pos216, #pos202, #pos206, #pos192, #pos196, #pos182, #pos183, #pos184, #pos185, #pos186, #pos162, #pos166, #pos152, #pos156, #pos142, #pos146, #pos132, #pos136, #pos123, #pos124, #pos125').addClass('you');
 };
 
 var winGraphic = function () {
       $('#pos282, #pos286, #pos272, #pos276, #pos262, #pos264, #pos266, #pos252, #pos253, #pos255, #pos256, #pos242, #pos246, #pos223, #pos224, #pos225, #pos214, #pos204, #pos194, #pos183, #pos184, #pos185, #pos162, #pos166, #pos152, #pos153, #pos156, #pos142, #pos144, #pos146, #pos132, #pos135, #pos136, #pos122, #pos126').removeClass('active');
+      $('#pos282, #pos286, #pos272, #pos276, #pos262, #pos264, #pos266, #pos252, #pos253, #pos255, #pos256, #pos242, #pos246, #pos223, #pos224, #pos225, #pos214, #pos204, #pos194, #pos183, #pos184, #pos185, #pos162, #pos166, #pos152, #pos153, #pos156, #pos142, #pos144, #pos146, #pos132, #pos135, #pos136, #pos122, #pos126').addClass('win');
 };
 
 var loseGraphic = function () {
       $('#pos281, #pos271, #pos261, #pos251, #pos241, #pos242, #pos243, #pos221, #pos222, #pos223, #pos211, #pos213, #pos215, #pos216, #pos217, #pos201, #pos203, #pos205, #pos191, #pos193, #pos195, #pos196, #pos197, #pos181, #pos182, #pos183, #pos187, #pos175, #pos176, #pos177, #pos155, #pos156, #pos157, #pos145, #pos135, #pos136, #pos125, #pos115, #pos116, #pos117').removeClass('active');
+      $('#pos281, #pos271, #pos261, #pos251, #pos241, #pos242, #pos243, #pos221, #pos222, #pos223, #pos211, #pos213, #pos215, #pos216, #pos217, #pos201, #pos203, #pos205, #pos191, #pos193, #pos195, #pos196, #pos197, #pos181, #pos182, #pos183, #pos187, #pos175, #pos176, #pos177, #pos155, #pos156, #pos157, #pos145, #pos135, #pos136, #pos125, #pos115, #pos116, #pos117').addClass('lose');
 };
 
 var allActive = function () {
       $('.cell').addClass('active');
+      $('.cell').removeClass('you win lose');
 };

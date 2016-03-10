@@ -1,4 +1,4 @@
-@font-face { font-family: Arcade; src: url('ARCADECLASSIC.ttf'); }
+@font-face { font-family: Arcade; src: url('images/arcadeclassic.ttf'); }
 
 .gameBoard {
   width: 240px;
@@ -41,6 +41,18 @@ h1 {
 
 .inactive {
   background-color: lightblue;
+}
+
+.win {
+  background-color: rgba(0,231,0,1);
+}
+
+.you {
+  background-color: rgba(255,255,0,1);
+}
+
+.lose {
+  background-color: rgba(0,255,255,1);
 }
 
 button {

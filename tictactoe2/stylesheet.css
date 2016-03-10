@@ -4,7 +4,7 @@ body {
   text-align: center;
   width: 100%;
   background-color: lightblue;
-  /*background: linear-gradient(to bottom, lightblue, darkblue);*/
+  background-image: url(images/light_texture2234.jpg);
   font-family: 'Architects Daughter', cursive;
 }
 
