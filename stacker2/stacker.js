@@ -1,25 +1,77 @@
+// defaults
 var column = 0;
 var direction = 1;
 var row = 11;
-var time = 380;
-var timeChange = 20;
+var time = 600;
+var timeChange = 30;
 var pieces = 3;
-var result = '';
+var result = 'incomplete';
+var level = 1;
+
+var level1 = function () {
+  column = 0;
+  direction = 1;
+  row = 11;
+  time = 600;
+  timeChange = 30;
+  pieces = 3;
+  result = 'incomplete';
+};
+
+var level2 = function () {
+  column = 0;
+  direction = 1;
+  row = 11;
+  time = 490;
+  timeChange = 25;
+  pieces = 3;
+  result = 'incomplete';
+};
+
+var level3 = function () {
+  column = 0;
+  direction = 1;
+  row = 11;
+  time = 380;
+  timeChange = 20;
+  pieces = 3;
+  result = 'incomplete';
+};
+
+var level4 = function () {
+  column = 0;
+  direction = 1;
+  row = 11;
+  time = 280;
+  timeChange = 15;
+  pieces = 3;
+  result = 'incomplete';
+};
+
+var level5 = function () {
+  column = 0;
+  direction = 1;
+  row = 11;
+  time = 185;
+  timeChange = 10;
+  pieces = 3;
+  result = 'incomplete';
+};
+
 
 var resetGame = function () {
-        $('.cell').removeClass('active you win lose');
-        column = 0;
-        direction = 1;
-        row = 11;
-        time = 380;
-        pieces = 3;
-        result = '';
+        resetBoard();
         $('.start').text('Start');
         $('.start').off('click');
         $('.start').on('click', firstStart);
         window.clearInterval(movingpiece);
         $(window).off('keypress');
 };
+
+var resetBoard = function () {
+          $('.cell').removeClass('active you win lose level number1 number2 number3 number4 number5');
+};
+
 
 var playThreePiece = function () {
         if (column > 1) {
@@ -133,7 +185,13 @@ var firstStart = function() {
         $('.start').text('Reset');
         $('.start').on('click', resetGame);
         $(window).on('keypress', changeRow);
-        playThree();
+        upActive(); ///
+        window.setTimeout(levelGraphic, 2000);
+        window.setTimeout(allActive, 3000);
+        window.setTimeout(number1, 3001);
+        window.setTimeout(resetBoard, 4000);
+        window.setTimeout(level1, 4001);
+        window.setTimeout(playThree, 4100);
 };
 
 $(document).ready(function() {
@@ -155,17 +213,48 @@ var endGame = function() {
         timerID = window.setInterval(endAnimate, 100);
 };
 
+var progress = function () {
+  if ( result === 'incomplete') {
+        return;
+  } else if (result !== 'incomplete') {
+        window.clearInterval(timerID);
+        window.setTimeout(youGraphic, 500);
+        window.setTimeout(allActive, 1500);
+        if (result === 'win' && level === 2) {
+            window.setTimeout(winGraphic, 1501);
+            window.setTimeout(allActive, 2500);
+            window.setTimeout(levelGraphic, 2501);
+            window.setTimeout(level2, 2501);
+        } else if (result === 'win' && level === 3) {
+            window.setTimeout(winGraphic, 1501);
+            window.setTimeout(allActive, 2500);
+            window.setTimeout(levelGraphic, 2501);
+            window.setTimeout(level3, 2501);
+        } else if (result === 'win' && level === 4) {
+            window.setTimeout(winGraphic, 1501);
+            window.setTimeout(allActive, 2500);
+            window.setTimeout(levelGraphic, 2501);
+            window.setTimeout(level4, 2501);
+        } else if (result === 'win' && level === 5) {
+            window.setTimeout(winGraphic, 1501);
+            window.setTimeout(allActive, 2500);
+            window.setTimeout(levelGraphic, 2501);
+            window.setTimeout(level5, 2501);
+        } else if (result === 'win' && level === 6) {
+            window.setTimeout(winGraphic, 1501);
+        } else if (result === 'lose') {
+            window.setTimeout(loseGraphic, 1501);
+        }
+        return;   //what is the purpose of this???????
+    }
+};
+
+
 var upAnimate = function () {
     if (row === 29) {
-      window.clearInterval(timerID);
-      window.setTimeout(youGraphic, 500);
-      window.setTimeout(allActive, 1500);
-      if (result === 'win') {
-          window.setTimeout(winGraphic, 1501);
-      } else if (result === 'lose') {
-          window.setTimeout(loseGraphic, 1501);
-      }
-      return;
+        // level += 1;
+        // progress();
+        return;
     }
     $('.row' + row).addClass('active');
     row += 1;
@@ -188,6 +277,30 @@ var winGraphic = function () {
 var loseGraphic = function () {
       $('#pos281, #pos271, #pos261, #pos251, #pos241, #pos242, #pos243, #pos221, #pos222, #pos223, #pos211, #pos213, #pos215, #pos216, #pos217, #pos201, #pos203, #pos205, #pos191, #pos193, #pos195, #pos196, #pos197, #pos181, #pos182, #pos183, #pos187, #pos175, #pos176, #pos177, #pos155, #pos156, #pos157, #pos145, #pos135, #pos136, #pos125, #pos115, #pos116, #pos117').removeClass('active');
       $('#pos281, #pos271, #pos261, #pos251, #pos241, #pos242, #pos243, #pos221, #pos222, #pos223, #pos211, #pos213, #pos215, #pos216, #pos217, #pos201, #pos203, #pos205, #pos191, #pos193, #pos195, #pos196, #pos197, #pos181, #pos182, #pos183, #pos187, #pos175, #pos176, #pos177, #pos155, #pos156, #pos157, #pos145, #pos135, #pos136, #pos125, #pos115, #pos116, #pos117').addClass('lose');
+};
+
+var number1 = function () {
+      $('#pos274, #pos263, #pos264, #pos252, #pos253, #pos254, #pos244, #pos234, #pos224, #pos214, #pos204, #pos194, #pos184, #pos174, #pos164, #pos154, #pos142, #pos143, #pos144, #pos145, #pos146').removeClass('active');
+};
+
+var number2 = function () {
+      $('#pos274, #pos275, #pos263, #pos264, #pos265, #pos266, #pos252, #pos253, #pos256, #pos257, #pos242, #pos247, #pos237, #pos226, #pos227, #pos215, #pos216, #pos204, #pos205, #pos193, #pos194, #pos182, #pos183, #pos172, #pos162, #pos152, #pos142, #pos143, #pos144, #pos145, #pos146, #pos147').removeClass('active');
+};
+
+var number3 = function () {
+      $('#pos274, #pos275, #pos263, #pos264, #pos265, #pos266, #pos252, #pos253, #pos256, #pos257, #pos242, #pos247, #pos236, #pos237, #pos225, #pos226, #pos214, #pos215, #pos204, #pos205, #pos195, #pos196, #pos186, #pos187, #pos177, #pos162, #pos166, #pos167, #pos152, #pos153, #pos154, #pos155, #pos156, #pos143, #pos144, #pos145').removeClass('active');
+};
+
+var number4 = function () {
+      $('#pos275, #pos276, #pos265, #pos266, #pos254, #pos256, #pos244, #pos246, #pos233, #pos236, #pos223, #pos226, #pos212, #pos216, #pos202, #pos203, #pos204, #pos205, #pos206, #pos207, #pos196, #pos186, #pos176, #pos166, #pos156, #pos146').removeClass('active');
+};
+
+var number5 = function () {
+      $('#pos272, #pos273, #pos274, #pos275, #pos276, #pos262, #pos263, #pos264, #pos265, #pos266, #pos252, #pos242, #pos232, #pos222, #pos224, #pos225, #pos212, #pos213, #pos214, #pos215, #pos216, #pos202, #pos203, #pos206, #pos207, #pos197, #pos187, #pos177, #pos162, #pos166, #pos167, #pos152, #pos153, #pos154, #pos155, #pos156, #pos143, #pos144, #pos145').removeClass('active');
+};
+
+var levelGraphic = function () {
+  $('#pos282, #pos272, #pos262, #pos252, #pos242, #pos243, #pos244, #pos245, #pos222, #pos226, #pos212, #pos216, #pos203, #pos205, #pos193, #pos195, #pos184, #pos174, #pos162, #pos152, #pos142, #pos132, #pos122, #pos123, #pos124, #pos125').removeClass('active');
 };
 
 var allActive = function () {

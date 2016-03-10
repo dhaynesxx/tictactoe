@@ -21,10 +21,12 @@ var pieces = {  'nought':
                 'ironman':
                 {'name': 'ironman', 'src': 'images/ironman.png', 'class': '', 'id': 'ironman'},
                 'scream':
-                {'name': 'scream', 'src': 'images/scream.png', 'class': '', 'id': 'scream'}
+                {'name': 'scream', 'src': 'images/scream.png', 'class': '', 'id': 'scream'},
+                'teddy':
+                {'name': 'teddy', 'src': 'images/teddy.png', 'class': '', 'id': 'teddy'}
 };
 
-var piecesArray = ['nought', 'cross', 'dog', 'cat', 'sun', 'moon', 'bird', 'ironman', 'scream'];
+var piecesArray = ['nought', 'cross', 'dog', 'cat', 'sun', 'moon', 'bird', 'ironman', 'scream', 'teddy'];
 
 var winningCombos = ['123','456','789','147','258','369','159','357'];
 var currentMove;
@@ -130,7 +132,7 @@ var resetBoard = function() {
         $('.square').addClass('unused');  //unused is checked for stalemate function
         $('.square').css({'background-image': 'none'}); //removes piece images from everywhere
         $('.box, .piece').removeClass('move');  //gets rid of class move
-        $('body').css({'background-color': 'lightblue'});  // changes back from win css properties
+        $('body').css({'background-image': 'url(images/light_texture2234.jpg)'});  // changes back from win css properties
         $('.square').removeClass('win');
         $('#piece1, #piece2').removeClass('multiWin');
         currentMove = 0;
@@ -179,7 +181,7 @@ var stalemate = function () {
     }
     $('h1').text("It's a draw.");
     $('h1').css({'color':'white'});
-    $('body').css({'background-color': 'darkblue'});
+    $('body').css({'background-image': 'url(images/orange.jpg)'});
     $('.square').off('click');
     return true;
 };
@@ -228,7 +230,7 @@ var win = function() {   // test if win, then what to do
         } else if (players.player2.name === currentMove.name) {
             players.player2.wins +=1;
         }
-        $('body').css({'background-color': 'lightgreen'});
+        $('body').css({'background-image': 'url(images/green.jpg)'});
         $('.square').off('click');
         return true;
     } return false;
@@ -269,7 +271,7 @@ var testNumGames = function() {
                     $('body').css({'background-color': "hotpink"});
                 } else if (players.player1.wins === players.player2.wins) {
                     $('h1').text('Its a Tie.');
-                    $('body').css({'background-color': "darkblue"});
+                    $('body').css({'background-image': 'url(image/orange.jpg)'});
                 }
         } else if ( gameTarget > 1) {
                 $('.begin-reset-start').text('Start Next Game');
